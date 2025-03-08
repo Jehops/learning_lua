@@ -29,14 +29,16 @@ end
 
 -- add to board 'a' all queens from 'n' to 'N'
 function addqueen (a,n)
-   if n > N then  -- all queens have been placed?
+   if n > N then  -- have all queens been placed?
       s = s+1
       printsolution(a)
+      os.exit()
    else -- try to place nth queen
       for c = 1, N do
-         if isplaceok(a,n,c) then -- can the nth queen be placed in column c?
-            a[n] = c -- yes, so place it
-            addqueen(a,n+1) -- place the next queen on the board
+         -- can the queen for row n be placed in column c?
+         if isplaceok(a,n,c) then
+            a[n] = c -- place queen on board
+            addqueen(a,n+1) -- add a queen to the next row
          end
       end
    end
