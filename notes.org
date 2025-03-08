@@ -1,0 +1,24 @@
+* Chapter 1. Getting Started
+
+Idioms:
+
+#+begin_src lua
+  --  These two lines are equivalent.  That is, they set x to a default value v
+  --  when x is not set (provided x is not set to false).
+  x = x or v
+  if not x then x=v end
+#+end_src
+
+#+begin_src lua
+  -- The idiom below is equivalent to the C expression a ? b : c.  For instance,
+  -- we can select the maximum of two numbers x and y with the expression
+
+  -- (x > y) and x or y
+
+  -- When x > y, the first expression of the and is true, so the and results in
+  -- its second operand (x), which is always true (because it is a number), and
+  -- then the or expression results in the value of its first operand, x. When x >
+  -- y is false, the and expression is false and so the or results in its second
+  -- operand, y.
+  a and b or c
+#+end_src
